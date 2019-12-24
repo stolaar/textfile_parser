@@ -1,5 +1,4 @@
 const BaseController = require("./BaseController");
-const fs = require("fs");
 class FilesController extends BaseController {
     constructor(req, res, next) {
         super(req, res, next);
