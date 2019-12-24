@@ -16,14 +16,14 @@ class FilesController extends BaseController {
                 const regex1 = new RegExp(/[^\s\d.-]\w+/);
                 chunk.forEach(el => {
                     if (el.match(/^[0-9](.)[a-zA-Z0-9]*$/)) {
-                        obj.name = regex1.exec(el)[0] || null;
+                        obj.name = (regex1.exec(el) || {})[0] || null;
                     }
                     if (el.match("-")) {
-                        let item = regex1.exec(el)[0] || null;
+                        let item = (regex1.exec(el) || {})[0] || null;
                         if (!item) {
                             console.warn("Item property should be style as \"- Item\"");
-                        }
-                        obj.items.push({ name: item });
+                        } else
+                            obj.items.push({ name: item });
                     }
                 })
                 if (obj.name === "") {
