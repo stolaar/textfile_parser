@@ -12,7 +12,6 @@ class FilesController extends BaseController {
             while (arr.length > 0) {
                 let endIndex = arr.findIndex(el => el === "");
                 const chunk = endIndex > 0 ? arr.splice(index, endIndex + 1) : arr.splice(index, arr.length);
-                chunk[chunk.length] === "" && chunk.pop();
                 const obj = { name: "", items: [] };
                 const regex1 = new RegExp(/[^\s\d.-]\w+/);
                 chunk.forEach(el => {
@@ -40,12 +39,3 @@ class FilesController extends BaseController {
 }
 
 module.exports = FilesController;
-
-// 1.Brand
-// -model1
-// -model2
-// -model3
-
-// 2.Brand2
-// -item2
-// -item5
